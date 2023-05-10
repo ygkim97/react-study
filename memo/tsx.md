@@ -1,4 +1,4 @@
-# tsx
+# 📕 tsx
 
 ### ️✅ JS와 JSX
 - JS와 JSX는 React 프로젝트에서 사용되는 두 가지 파일 형식
@@ -43,11 +43,45 @@
 #### 데이터바인딩
 ```tsx
 // 중괄호 안에 데이터 설정
-function test(){
+function Test(){
   let data = '테스트 데이터'
   
   return (
     <div>{data}</div>
+  )
+}
+```
+
+#### state
+- 리액트의 데이터 저장공간
+- web이 app처럼 동작하게 도와줌 → 데이터 변동사항이 생기면 자동으로 html 재렌더링해주기 때문
+- 자주 바뀌는 중요한 데이터는 변수가 아닌 state 사용
+```tsx
+import {useState} from 'react';
+
+function Test(){
+  // data: 데이터
+  // setDataFn: 데이터 변경 도와주는 함수
+  let [data, setDataFn] = useState(['a','b','c']);
+  let [num, setNum] = useState(0);
+  
+  return (
+    <div>
+      <div>data</div> {/* output: abc */}
+      <div>data.at(0)</div> {/* output: a */}
+      <div onClick={()=> {
+        {/*
+         state값 변경시, 기존 state == 신규 state 이면 변경X
+         Array,Object 인 경우, 주소값을 저장하기 때문에 변경해도 같다고 감지해
+         독립적인 copyData를 만들어 사용해야함.
+         */}
+        let copy = [...data];
+        copy[0] = 'A';
+        setDataFn(copy);
+      }}>버튼1</div>
+      
+      <div onClick={()=>{setNum(num+1)}}>버튼2</div> {/* state 변경시, 무조건 state변경함수 사용 */}
+    </div>
   )
 }
 ```
