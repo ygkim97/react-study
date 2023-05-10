@@ -2,8 +2,17 @@
   text-align: center;
 }
 
+.nav {
+  display: flex;
+  background-color: black;
+  color: white;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
 .App-logo {
-  height: 40vmin;
+  height: 5vmin;
   pointer-events: none;
 }
 
