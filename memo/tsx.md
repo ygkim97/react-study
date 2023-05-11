@@ -85,3 +85,83 @@ function Test(){
   )
 }
 ```
+
+#### component
+- 작업의 단위로 함수형 컴포넌트와, 클래스형 컴포넌트로 구분
+- 함수형 컴포넌트: function으로 정의하고 return 문에 jsx 코드 반환
+- 클래스형 컴포넌트: class로 정의하고 render()함수에서 jsx 코드를 반환
+
+함수형 컴포넌트 
+```tsx
+import React from "react";
+// 함수명은 대문자로 시작, const로 하면 Component에 값넣을때 에러뱉어줌
+const Test1 = () => {
+  const name= 'ucong';
+  {/*
+  return() 안에 html 병렬기입할때, div태그가 의미 없다면
+  div 태그 대신 <></> 사용가능
+  */}
+  return (
+    <>
+      <div>{ucong}</div>
+    </>
+  )
+}
+```
+클래스형 컴포넌트
+```tsx
+import React, {Component} from "react";
+class Test2 extends Component {
+  render(){
+    const name = 'ucong';
+    return <div>{name}</div>
+  }
+  
+}
+```
+
+```text
+// TODO: 함수형 컴포넌트 VS 클래스형 컴포넌트 더 알아보기
+참고 - https://chanhuiseok.github.io/posts/react-4/
+```
+
+#### 반복문
+- JSX의 {}안에는 변수, 함수만 가능
+- JSX 안에는 for문을 넣을 수 없음 → 배열 내장함수(map) 이용 </br>
+```tsx
+// for문
+function Test1(){
+  
+  // 1. 일반함수를 만들어 함수안에 HTMl을 담을 array 자료 생성
+  function hi(){
+    let array = [];
+    for(let i = 0; i < 3; i++){
+      array.push(<div key={i}>안녕{i}!</div>)
+    }
+    // 완성된 array return
+    return array;
+  }
+  
+  return(
+    <>
+      // 원하는 곳에 데이터 바인딩
+      {hi()}
+    </>
+  )
+}
+
+// map
+function Test2(){
+  let [hi] = useState(['안녕1!','안녕2!','안녕3!']);
+  
+  return (
+    <>
+      {
+        hi.map((el,i)=> 
+          <div key={i}>el</div>
+        )
+      }
+    </>
+  )
+}
+```
