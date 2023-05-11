@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import "./App.css";
-import Header from "./components/header/header";
-import Footer from "./components/Footer/footer";
-import ListBox from "./components/list/list-box";
+import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
+import ListBox from "./components/ListBox/ListBox";
 
 function App() {
   return (

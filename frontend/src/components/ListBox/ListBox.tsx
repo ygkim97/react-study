@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./list-box.css";
+import "./ListBox.css";
 
 export interface Post {
   id: Number;

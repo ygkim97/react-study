@@ -1,6 +1,6 @@
 import logo from "../../logo.svg";
 import React from "react";
-import "./header.css";
+import "./Header.css";
 
 function Header() {
   let header = "react + typescript";
