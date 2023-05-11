@@ -1,0 +1,8 @@
+.header {
+  display: flex;
+  background-color: black;
+  color: white;
+  align-items: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
